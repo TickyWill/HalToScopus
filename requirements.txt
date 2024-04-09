@@ -1,0 +1,5 @@
+git+https://github.com/Bertin-fap/HalApyJson.git#egg=HalApyJson
+git+https://github.com/TickyWill/ScopusApyJson.git#egg=ScopusApyJson
+auto_py_to_exe==2.42.0
+notebook==6.4.4
+screeninfo==0.8.1
