@@ -6,8 +6,7 @@ __all__ = ['encadre_RL',
            'mm_to_px',
            'place_after', 
            'place_bellow', 
-           'place_bellow_LabelEntry', 
-           'root_properties',
+           'place_bellow_LabelEntry',
            'str_size_mm',
           ]
     
@@ -232,27 +231,5 @@ def general_properties(self):
     self.title(gg.APPLICATION_WINDOW_TITLE)
         
     return self, sizes_tuple
-
-
-def root_properties(root):
-    '''The function `root_properties` calculate the window sizes 
-    and useful scale factors for the application secondary windows.
-    
-    Args:
-        root (str): reference window for getting screen information
-        
-    Returns:
-        (tuple): 2 window sizes in pixels, 2 scale factors for sizes in mm 
-                 and 2 scale factors for sizes in pixels.
-    '''
-   
-    # Getting screen effective sizes in pixels for window "root" (not woring for Darwin platform)
-    screen_width_px  = root.winfo_screenwidth()
-    screen_height_px = root.winfo_screenheight()
-    
-    sizes_tuple = _window_properties(screen_width_px, screen_height_px)
-
-    return sizes_tuple
-
 
 

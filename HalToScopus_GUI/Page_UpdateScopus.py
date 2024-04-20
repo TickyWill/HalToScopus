@@ -1,7 +1,5 @@
 __all__ = ['create_consolidate_scopus']
 
-# Nom de module et nom de fonctions à revoir !!!
-
 def _launch_update_scopus(institute,
                           haltoscopus_path,
                           corpus_year,
@@ -87,13 +85,13 @@ def create_consolidate_scopus(self, institute, haltoscopus_path, parent):
     # Local imports
     import HalToScopus_GUI.GUI_Globals as gg
     import HalToScopus_Utils.HTS_PubGlobals as hts_pg
+    from HalToScopus_GUI.Page_Main import app_main
     from HalToScopus_GUI.Useful_Functions import encadre_RL 
     from HalToScopus_GUI.Useful_Functions import font_size
     from HalToScopus_GUI.Useful_Functions import last_available_years
     from HalToScopus_GUI.Useful_Functions import mm_to_px
     from HalToScopus_GUI.Useful_Functions import place_after
     from HalToScopus_GUI.Useful_Functions import place_bellow
-    from HalToScopus_GUI.Useful_Functions import root_properties 
     
     # Internal functions    
     def _launch_update_scopus_try():
@@ -138,41 +136,31 @@ def create_consolidate_scopus(self, institute, haltoscopus_path, parent):
         answer_1 = messagebox.askokcancel('Information', message)
         if answer_1:
             parent.destroy()
-            
-    # Getting useful window sizes and scale factors depending on displays properties
-    sizes_tuple   = root_properties(self)
-    win_width_px  = sizes_tuple[0]    # unused here
-    win_height_px = sizes_tuple[1]    # unused here
-    width_sf_px   = sizes_tuple[2] 
-    height_sf_px  = sizes_tuple[3]    # unused here
-    width_sf_mm   = sizes_tuple[4]
-    height_sf_mm  = sizes_tuple[5]
-    width_sf_min  = min(width_sf_mm, width_sf_px)
     
     # Setting effective font sizes and positions (numbers are reference values in mm)
-    eff_buttons_font_size    = font_size(gg.REF_ETAPE_FONT_SIZE-3, width_sf_min)
-    eff_select_font_size     = font_size(gg.REF_ETAPE_FONT_SIZE-2, width_sf_min)
-    eff_etape_font_size      = font_size(gg.REF_ETAPE_FONT_SIZE, width_sf_min)           #14
-    eff_help_font_size       = font_size(gg.REF_ETAPE_FONT_SIZE-2, width_sf_min)
-    eff_launch_font_size     = font_size(gg.REF_ETAPE_FONT_SIZE-1, width_sf_min)    
+    eff_buttons_font_size    = font_size(gg.REF_ETAPE_FONT_SIZE-3, app_main.width_sf_min)
+    eff_select_font_size     = font_size(gg.REF_ETAPE_FONT_SIZE-2, app_main.width_sf_min)
+    eff_etape_font_size      = font_size(gg.REF_ETAPE_FONT_SIZE, app_main.width_sf_min)           #14
+    eff_help_font_size       = font_size(gg.REF_ETAPE_FONT_SIZE-2, app_main.width_sf_min)
+    eff_launch_font_size     = font_size(gg.REF_ETAPE_FONT_SIZE-1, app_main.width_sf_min)    
     etape_label_format = 'left'
     etape_underline    = -1    
-    year_button_x_pos        = mm_to_px(gg.REF_YEAR_BUT_POS_X_MM * width_sf_mm,  gg.PPI)    #10  
-    year_button_y_pos        = mm_to_px(gg.REF_YEAR_BUT_POS_Y_MM * height_sf_mm, gg.PPI)    #26     
+    year_button_x_pos        = mm_to_px(gg.REF_YEAR_BUT_POS_X_MM * app_main.width_sf_mm,  gg.PPI)    #10  
+    year_button_y_pos        = mm_to_px(gg.REF_YEAR_BUT_POS_Y_MM * app_main.height_sf_mm, gg.PPI)    #26     
     dy_year                  = -6
     ds_year                  = 5
-    scopus_update_x_pos_px   = mm_to_px(10 * width_sf_mm,  gg.PPI)
-    scopus_update_y_pos_px   = mm_to_px(50 * height_sf_mm, gg.PPI)     
-    launch_dx_px             = mm_to_px( 0 * width_sf_mm,  gg.PPI)    
-    launch_dy_px             = mm_to_px( 5 * height_sf_mm, gg.PPI)   
-    exit_button_x_pos_px     = mm_to_px(gg.REF_EXIT_BUT_POS_X_MM * width_sf_mm,  gg.PPI)    #193 
-    exit_button_y_pos_px     = mm_to_px(gg.REF_EXIT_BUT_POS_Y_MM * height_sf_mm, gg.PPI)    #145 
+    scopus_update_x_pos_px   = mm_to_px(10 * app_main.width_sf_mm,  gg.PPI)
+    scopus_update_y_pos_px   = mm_to_px(50 * app_main.height_sf_mm, gg.PPI)     
+    launch_dx_px             = mm_to_px( 0 * app_main.width_sf_mm,  gg.PPI)    
+    launch_dy_px             = mm_to_px( 5 * app_main.height_sf_mm, gg.PPI)   
+    exit_button_x_pos_px     = mm_to_px(gg.REF_EXIT_BUT_POS_X_MM * app_main.width_sf_mm,  gg.PPI)    #193 
+    exit_button_y_pos_px     = mm_to_px(gg.REF_EXIT_BUT_POS_Y_MM * app_main.height_sf_mm, gg.PPI)    #145 
 
     ### Décoration de la page
     # - Canvas
     fond = tk.Canvas(self, 
-                     width = win_width_px, 
-                     height = win_height_px)
+                     width  = app_main.win_width_px, 
+                     height = app_main.win_height_px)
     fond.place(x = 0, y = 0)
     
     ### Choix de l'année

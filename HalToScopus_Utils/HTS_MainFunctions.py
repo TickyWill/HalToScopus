@@ -14,6 +14,14 @@ def consolidate_scopus(institute, haltoscopus_path, corpus_year, files_tup):
     
     # Local imports
     from HalToScopus_Utils.HTS_PubGlobals import UNKNOWN
+    
+    # internal functions
+    
+    def _replace_na(init_df):
+        init_df.fillna(0, inplace = True)
+        new_df = init_df.astype(str)
+        new_df.replace('0', UNKNOWN, inplace=True)
+        return new_df
        
     # Setting working folder path
     working_folder_path = haltoscopus_path / Path(corpus_year)    
@@ -22,13 +30,15 @@ def consolidate_scopus(institute, haltoscopus_path, corpus_year, files_tup):
     init_scopus_file_alias = files_tup[0]
     init_scopus_file_path = working_folder_path / Path(init_scopus_file_alias + ".csv")
     scopus_init_df = pd.read_csv(init_scopus_file_path, sep = ",")
+    scopus_init_df = _replace_na(scopus_init_df)
     scopus_doi_list_raw = scopus_init_df['DOI'].tolist()
     scopus_doi_list_lower = [str(doi).lower() for doi in scopus_doi_list_raw]
     scopus_doi_set = set(scopus_doi_list_lower)
 
     # Getting DOIs list using HAL api
     hal_df = haj.build_hal_df_from_api(corpus_year, institute.lower())
-    hal_df.replace(to_replace = "NA", value = UNKNOWN, inplace = True)
+    hal_df = _replace_na(hal_df)
+    hal_df.fillna(UNKNOWN, inplace = True)
     hal_doi_list_raw = list(set(hal_df["DOI"].tolist()) - set([UNKNOWN]))
     hal_doi_list_lower = [doi.lower() for doi in hal_doi_list_raw]
     hal_doi_set = set(hal_doi_list_lower)
@@ -42,7 +52,8 @@ def consolidate_scopus(institute, haltoscopus_path, corpus_year, files_tup):
     scopus_tup = saj.build_scopus_df_from_api(hal_not_scopus_doi_list, timeout = 30, verbose = False)
     authy_status = scopus_tup[2]
     if authy_status: 
-        scopus_df = scopus_tup[0]        
+        scopus_df = scopus_tup[0]
+        scopus_df = _replace_na(scopus_df)
         new_scopus_file_alias = files_tup[1]
         if not scopus_df.empty:
             new_scopus_df = pd.concat([scopus_init_df, scopus_df])

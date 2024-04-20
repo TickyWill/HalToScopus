@@ -57,7 +57,7 @@ __all__ = ['ADD_SPACE_MM',
 VERSION ='0.0.0'
 
 # Setting the number of corpuses to analyse
-CORPUSES_NUMBER = 6
+CORPUSES_NUMBER = 10
 
 # Setting the title of the application main window (internal)
 APPLICATION_WINDOW_TITLE = f"HalToScopus - Consolidation des extractions Scopus et HAL d'un institut"
@@ -119,14 +119,14 @@ BM_GUI_DISP = 0
 PPI = DISPLAYS[BM_GUI_DISP]['ppi']
 
 # Setting display reference sizes in pixels and mm (internal)
-REF_SCREEN_WIDTH_PX       = 1920
-REF_SCREEN_HEIGHT_PX      = 1080
-REF_SCREEN_WIDTH_MM       = 467
-REF_SCREEN_HEIGHT_MM      = 267
+REF_SCREEN_WIDTH_PX  = 1920
+REF_SCREEN_HEIGHT_PX = 1080
+REF_SCREEN_WIDTH_MM  = 467
+REF_SCREEN_HEIGHT_MM = 267
 
 # Application window reference sizes in mm for the display reference sizes (internal)
-REF_WINDOW_WIDTH_MM       = 219
-REF_WINDOW_HEIGHT_MM      = 173
+REF_WINDOW_WIDTH_MM  = 219
+REF_WINDOW_HEIGHT_MM = 173
 
 
 #################################################################### 
@@ -146,7 +146,7 @@ REF_ENTRY_NB_CHAR          = 100     #100
 REF_SUB_TITLE_FONT_SIZE    = 15      #15
 REF_PAGE_TITLE_FONT_SIZE   = 30      #30
 REF_LAUNCH_FONT_SIZE       = 25      #25
-REF_SEF_FONT_SIZE          = 15      #15        #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+REF_SEF_FONT_SIZE          = 15      #15 
 REF_BUTTON_FONT_SIZE       = 12      #10
 REF_COPYRIGHT_FONT_SIZE    = 12      #10
 REF_VERSION_FONT_SIZE      = 12      #10
@@ -198,7 +198,6 @@ REF_CHECK_BOXES_SEP_SPACE  = 25      #25
 # Setting label for each gui page
 PAGES_LABELS = {'Page_UpdateScopus' : "Consolidation Scopus avec HAL",
                }
-
 
 ########################## Cover Page (BiblioMeter launching Page) ##########################
 
