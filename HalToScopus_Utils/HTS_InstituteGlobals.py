@@ -14,11 +14,11 @@ INSTITUTES_LIST = ["Liten", "Leti"]
 WORKING_FOLDERS_DICT = {}
 
 WORKING_FOLDERS_DICT["Liten"]  = "S:\\130-LITEN\\130.1-Direction\\130.1.2-Direction Scientifique\\"
-WORKING_FOLDERS_DICT["Liten"] += "130.1.2.1-Dossiers en cours\\03- Publications\\"
-WORKING_FOLDERS_DICT["Liten"] += "BiblioMeter_En test\\ScopusExtractions_Files"
+WORKING_FOLDERS_DICT["Liten"] += "130.1.2.2-Infos communes\\BiblioMeter\\BiblioMeter_Files\\"
+WORKING_FOLDERS_DICT["Liten"] += "Extractions Institut\\ScopusExtractions_Files"
 
-WORKING_FOLDERS_DICT["Leti"]   = "C:\\Users\\AC265100\\Documents\\"
-WORKING_FOLDERS_DICT["Leti"]  += "BiblioMeter_App\\LETI\\ScopusExtractions_Files"
+WORKING_FOLDERS_DICT["Leti"]   = "S:\\120-LETI\\120.38-BiblioMeter\\BiblioMeter_Files\\"
+WORKING_FOLDERS_DICT["Leti"]  += "Extractions Institut\\ScopusExtractions_Filess"
 
 CONFIG_JSON_FILES_DICT = {}
 for institute in INSTITUTES_LIST:
