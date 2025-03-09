@@ -1,10 +1,11 @@
+"""Module for setting publicatoons globals."""
+
 __all__ = ['UNKNOWN',
            'FILES_BASE',
           ]
 
 
 UNKNOWN = "unknown"
-
 
 FILES_BASE = {"scopus_base"      : "-final scopus",
               "new_scopus_base"  : "-final scopus_hal",

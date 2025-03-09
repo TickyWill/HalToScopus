@@ -137,5 +137,6 @@ dmypy.json
 
 # My stuff
 requirements-4ipynb.txt
+.idea/
 
 

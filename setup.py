@@ -1,20 +1,21 @@
 #!/usr/bin/env python
 
-from setuptools import setup, find_packages
+# Standard library imports
 from os import path
+from setuptools import setup, find_packages
 
 # read the contents of your README file
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
-    
+
 with open(path.join(this_directory, 'requirements.txt'), encoding='utf-8') as f:
     install_requires = f.read().strip().split('\n')
 
 # This setup is suitable for "python setup.py develop".
 
 setup(name='HalToScopus',
-      version='0.0.0',
+      version='1.0.0',
       description='An application for bibliometry',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -31,7 +32,8 @@ setup(name='HalToScopus',
       keywords = 'Bibliography, Corpuses merging, HAL, SCOPUS',
       install_requires = install_requires,
       author= 'BiblioMeter team',
-      author_email= 'francois.bertin7@wanadoo.fr, amal.chabli@orange.fr, ludovic.desmeuzes@yahoo.com',
+      author_email= ('francois.bertin7@wanadoo.fr, amal.chabli@orange.fr, '
+                     'ludovic.desmeuzes@yahoo.com'),
       url= 'https://github.com/TickyWill/HalToScopus',
       packages=find_packages(),
       )

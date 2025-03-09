@@ -5,10 +5,19 @@
 
 
 # Local imports
-from HalToScopus_GUI.Page_Main import app_main
+from htsgui.main_page import AppMain
 
-app = app_main()
-app.mainloop()
+def run_hts():
+    """Main function used for starting the HalToScopus application.
+    """
+    try:
+        app = AppMain()
+        app.mainloop()
+    except Exception as err:
+        print(err)
+
+if __name__ == "__main__":
+    run_hts()
 
 
 # In[ ]:
