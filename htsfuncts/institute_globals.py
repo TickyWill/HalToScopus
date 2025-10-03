@@ -18,7 +18,7 @@ WORKING_FOLDERS_DICT["Liten"] = ("S:\\130-LITEN\\130.1-Direction\\130.1.2-Direct
                                  "Extractions Institut\\ScopusExtractions_Files")
 
 WORKING_FOLDERS_DICT["Leti"] = ("S:\\120-LETI\\120.38-BiblioMeter\\BiblioMeter_Files\\"
-                                "Extractions Institut\\ScopusExtractions_Filess")
+                                "Extractions Institut\\ScopusExtractions_Files")
 
 CONFIG_JSON_FILES_DICT = {}
 for institute in INSTITUTES_LIST:
