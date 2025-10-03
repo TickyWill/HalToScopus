@@ -1,5 +1,5 @@
 """The `update_scopus_page` GUI module allows to built updated publications 
-list extracted from Scopus database for the Institute selected.
+list extracted from Scopus database for the selected Institute.
 """
 
 __all__ = ['create_consolidate_scopus']
@@ -217,7 +217,7 @@ def create_consolidate_scopus(self, institute, haltoscopus_path, parent):
     scopus_update_launch_button = tk.Button(self,
                                         text=gg.TEXT_MAJ_SCOPUS,
                                         font=scopus_update_launch_font,
-                                        command=lambda: _launch_update_scopus_try())
+                                        command=lambda: _launch_update_scopus_try())  # pylint: disable=unnecessary-lambda
     place_bellow(help_label,
                  scopus_update_launch_button,
                  dx=launch_dx_px,
@@ -229,6 +229,6 @@ def create_consolidate_scopus(self, institute, haltoscopus_path, parent):
     tk.Button(self,
               text=gg.TEXT_PAUSE,
               font=font_button_quit,
-              command=lambda: _launch_exit()).place(x=exit_button_x_pos_px,
+              command=lambda: _launch_exit()).place(x=exit_button_x_pos_px,  # pylint: disable=unnecessary-lambda
                                             y=exit_button_y_pos_px,
                                             anchor='n')

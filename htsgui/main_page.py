@@ -28,7 +28,7 @@ from htsgui.useful_functs import str_size_mm
 class AppMain(tk.Tk):
     """The class AppMain inherite the attributes and methods of "tk.Tk".
 
-    self stands for ScopusExtractions_Files.
+    sef stands for ScopusExtractions_Files.
     """
     # ======================== Class init - start =======================
     def __init__(self):
@@ -267,7 +267,7 @@ class AppMain(tk.Tk):
         """Permet la génération des pages après spécification du chemin 
         vers la zone de stockage.
 
-        Vérifie qu'un chemin a été renseigné et continue le cas échant, 
+        Vérifie qu'un chemin a été renseigné et continue le cas échéant, 
         sinon redemande de renseigner un chemin.
         """
         if haltoscopus_path=='':
@@ -302,7 +302,7 @@ class AppMain(tk.Tk):
                              controller=self,
                              container_button=container_button,
                              institute=institute,
-                             haltoscopus_path =haltoscopus_path)
+                             haltoscopus_path=haltoscopus_path)
                 self.frames[page_name] = frame
 
                 # put all of the pages in the same location;
